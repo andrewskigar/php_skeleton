@@ -1,0 +1,54 @@
+{
+    "name": "andrew_skigar/php_skeleton",
+    "description": "PHP skeleton application template",
+    "type": "project",
+    "autoload": {
+        "psr-4": {
+            "App\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    },
+    "authors": [
+        {
+            "name": "Andrew Skigar",
+            "email": "andrew.skigar@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable",
+    "prefer-stable": true,
+    "config": {
+        "sort-packages": true,
+        "preferred-install": "dist",
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "require": {
+        "php": "^8.3.0"
+    },
+    "require-dev": {
+        "laravel/pint": "^1.19",
+        "pestphp/pest": "^3.7",
+        "phpstan/phpstan": "2.1.x-dev",
+        "rector/rector": "^2.0"
+    },
+    "bin": [
+        "bin/quote"
+    ],
+    "scripts": {
+        "refacto": "rector",
+        "lint": "pint",
+        "test:refacto": "rector --dry-run",
+        "test:lint": "pint --test",
+        "test:analyse": "phpstan analyse --ansi",
+        "test": [
+            "@test:refacto",
+            "@test:lint",
+            "@test:analyse"
+        ]
+    }
+}
