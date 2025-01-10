@@ -28,7 +28,8 @@
         }
     },
     "require": {
-        "php": "^8.3.0"
+        "php": "^8.3.0",
+        "symfony/console": "^7.2"
     },
     "require-dev": {
         "laravel/pint": "^1.19",
@@ -46,11 +47,14 @@
         "test:refacto": "rector --dry-run",
         "test:lint": "pint --test",
         "test:analyse": "phpstan analyse --ansi",
-        "test:unit": "pest --colors=always --coverage --parallel --min=100",
+        "test:type": "pest --type-coverage",
+        "test:unit": "pest tests/Unit --colors=always",
+        "test:all": "pest --colors=always --coverage --parallel --min=100",
         "test": [
             "@test:refacto",
             "@test:lint",
-            "@test:analyse"
+            "@test:analyse",
+            "@test:all"
         ]
     }
 }

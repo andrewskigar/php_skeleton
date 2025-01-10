@@ -1,0 +1,31 @@
+#!/usr/bin/env php
+<?php
+
+declare(strict_types=1);
+
+use App\Console\Commands\QuoteCommand;
+use Symfony\Component\Console\Application;
+
+foreach ([
+    dirname(__DIR__, 4).'/vendor/autoload.php',
+    dirname(__DIR__).'/vendor/autoload.php',
+] as $autoloadPath) {
+    if (file_exists($autoloadPath)) {
+        include_once $autoloadPath;
+
+        break;
+    }
+}
+
+$app = new Application('quote', '0.0.1');
+
+$quoteCommand = new QuoteCommand();
+
+$app->add($quoteCommand);
+$app->setDefaultCommand($quoteCommand->getName());
+
+try {
+    $app->run();
+} catch (Exception $e) {
+    echo $e->getMessage();
+}
