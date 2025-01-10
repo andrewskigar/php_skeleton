@@ -48,7 +48,7 @@
         "test:refacto": "rector --dry-run",
         "test:lint": "pint --test",
         "test:analyse": "phpstan analyse --ansi",
-        "test:types": "pest --type-coverage",
+        "test:types": "pest --type-coverage --min=100",
         "test:unit": "pest tests/Unit --colors=always",
         "test:all": "pest --colors=always --coverage --parallel --min=100",
         "test": [
