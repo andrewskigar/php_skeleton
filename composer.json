@@ -2,6 +2,7 @@
     "name": "andrew_skigar/php_skeleton",
     "description": "PHP skeleton application template",
     "type": "project",
+    "license": "MIT",
     "autoload": {
         "psr-4": {
             "App\\": "src/"
