@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-use App\Utils\ArrayQuoteGenerator;
+use App\Utils\QuoteGenerators\ArrayQuoteGenerator;
 
 it('can get random quote', function (): void {
     $quoteGenerator = new ArrayQuoteGenerator();

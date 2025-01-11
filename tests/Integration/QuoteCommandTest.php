@@ -3,7 +3,7 @@
 declare(strict_types=1);
 
 use App\Console\Commands\QuoteCommand;
-use App\Utils\ArrayQuoteGenerator;
+use App\Utils\QuoteGenerators\ArrayQuoteGenerator;
 use Symfony\Component\Console\Application;
 use Symfony\Component\Console\Tester\CommandTester;
 
