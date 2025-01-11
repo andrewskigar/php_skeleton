@@ -4,6 +4,7 @@
 declare(strict_types=1);
 
 use App\Console\Commands\QuoteCommand;
+use App\Utils\QuoteGenerator;
 use Symfony\Component\Console\Application;
 
 foreach ([
@@ -19,7 +20,7 @@ foreach ([
 
 $app = new Application('quote', '0.0.1');
 
-$quoteCommand = new QuoteCommand();
+$quoteCommand = new QuoteCommand(new QuoteGenerator());
 
 $app->add($quoteCommand);
 $app->setDefaultCommand($quoteCommand->getName());
