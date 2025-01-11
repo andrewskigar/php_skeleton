@@ -4,6 +4,7 @@
 declare(strict_types=1);
 
 use App\Console\Commands\QuoteCommand;
+use App\Utils\LoggerFactory;
 use App\Utils\QuoteGenerators\ArrayQuoteGenerator;
 use Symfony\Component\Console\Application;
 
@@ -20,7 +21,7 @@ foreach ([
 
 $app = new Application('quote', '0.0.1');
 
-$quoteCommand = new QuoteCommand(new ArrayQuoteGenerator());
+$quoteCommand = new QuoteCommand(new ArrayQuoteGenerator(), (new LoggerFactory())->createLogger());
 
 $app->add($quoteCommand);
 $app->setDefaultCommand($quoteCommand->getName());

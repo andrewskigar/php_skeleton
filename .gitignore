@@ -6,5 +6,6 @@
 /.php-cs-fixer.php
 /composer.lock
 /phpunit.xml
+/phpstan.neon
 /var/
 /vendor/
