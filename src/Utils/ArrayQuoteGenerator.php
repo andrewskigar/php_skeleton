@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 namespace App\Utils;
 
-final class QuoteGenerator implements QuoteGeneratorInterface
+final class ArrayQuoteGenerator implements QuoteGeneratorInterface
 {
     /**
      * @var array<string, string>
