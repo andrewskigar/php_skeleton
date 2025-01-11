@@ -5,3 +5,5 @@ parameters:
 		- tests
 
 	reportUnmatchedIgnoredErrors: true
+includes:
+    - vendor/phpstan/phpstan-mockery/extension.neon
