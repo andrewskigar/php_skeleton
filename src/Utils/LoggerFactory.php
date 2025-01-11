@@ -4,6 +4,7 @@ declare(strict_types=1);
 
 namespace App\Utils;
 
+use Monolog\Formatter\LineFormatter;
 use Monolog\Handler\StreamHandler;
 use Monolog\Level;
 use Monolog\Logger;
@@ -13,9 +14,15 @@ final class LoggerFactory
 {
     public function createLogger(): LoggerInterface
     {
-        $logger = new Logger('console.quote');
+        $dateFormat = "Y n j, g:i a";
+        $output = "[%datetime%] / %channel%.%level_name%: %message% %context% %extra%\n";
 
-        $logger->pushHandler(new StreamHandler(__DIR__.'/../../var/logs/console_quote.log', Level::Debug));
+        $formatter = new LineFormatter($output, $dateFormat);
+        $handler = new StreamHandler(__DIR__.'/../../var/logs/console_quote.log', Level::Debug);
+        $handler->setFormatter($formatter);
+
+        $logger = new Logger('console.quote');
+        $logger->pushHandler($handler);
 
         return $logger;
     }
